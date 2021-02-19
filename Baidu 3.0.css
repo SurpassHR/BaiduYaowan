@@ -89,7 +89,7 @@
     }
 }
 
-@-moz-document regexp("https://www.baidu.com/\\?.*|https://www1.baidu.com/") {
+@-moz-document regexp("https://www.baidu.com/\\?.*|https://www1.baidu.com/|https://www.baidu.com/") {
     /*   淡入淡出   */
     /* 动画 */
     @-webkit-keyframes float/*Safari and Chrome*/
