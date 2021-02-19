@@ -1,0 +1,86 @@
+.container_l,
+.op-img-star-divide-low > a {
+    width: auto !important;
+}
+
+#content_left {
+    width: 93% !important;
+    padding-left: 1.5% !important;
+}
+
+#content_left > .c-container,
+#content_left > [class^="result"],
+.c-group-wrapper {
+    display: block !important;
+    width: 46% !important;
+    min-width: 568px !important;
+    min-height: 140px !important;
+    /*     max-height: 170px !important; */
+    float: left !important;
+    /*     margin-left: 0.4% !important;
+    margin-right: 0.4% !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important; */
+    margin: .4% !important;
+    padding: 8px 10px 3px 10px !important;
+    table-layout: fixed !important;
+    border-collapse: separate !important;
+    overflow: hidden !important;
+}
+
+#container #content_left div[tpl*="stock"],
+#container #content_left div[tpl*="exrate"],
+#container #content_left div[tpl*="video"] {
+    max-height: 240px !important;
+    min-height: 140px !important;
+    overflow: auto !important;
+}
+
+/* 控制滚动条的显示 */
+#container #content_left div[tpl*="video"]::-webkit-scrollbar-thumb,
+#container #content_left div[tpl*="stock"]::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+.s_tab {
+    width: 98%;
+    padding-left: 33px !important;
+    padding-right: 0 !important;
+    text-align: center;
+}
+
+.search_tool_conter,
+.nums,
+.to_tieba,
+.to_zhidao_bottom {
+    margin: 0 auto!important;
+}
+
+#rs {
+    margin: 15px auto !important;
+    width: 91.4% !important;
+    text-align: center !important;
+}
+
+#rs table {
+    margin: auto !important;
+}
+
+#result_logo,
+#form {
+    position: absolute;
+}
+
+#result_logo {
+    margin-left: 27% !important;
+}
+
+#form {
+    margin-left: 33%
+}
+
+#content_right,
+.c-recommend,
+body > div[class="result-op xpath-log"] {
+    display: none !important;
+}

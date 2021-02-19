@@ -1,0 +1,750 @@
+/* ==UserStyle==
+@name           ✨️Baidu💊️ 2.0
+@namespace      github.com/SurpassHR
+@version        1.0.0
+@description    只实现效果，布局在百度多栏
+@author         Koevin Hoo
+==/UserStyle== */
+/* 
+更新日志
+@version        1.5.0
+@description    改为双排，内容更加紧凑
+*/
+@-moz-document regexp("https://www.baidu.com/s.*|https://www1.baidu.com/s.*|https://www.google.com/search.*|https://www.baidu.com/baidu?.*") {
+    /*   附加针对 baidu AC 自动翻页的样式   */
+    #container #content_left .sp-separator {
+        /*         min-width: 151px !important;
+        border-radius: 6px !important;
+        border: none !important;
+        max-width: 95.25% !important;
+        background-color: #eeeeeeab !important;
+        margin: auto 0.3% !important;
+        transition: .3s !important; */
+        display: none !important;
+    }
+
+    #container #content_left .sp-separator:hover {
+        box-shadow: 0 5px 10px #88888870;
+        background-color: #eeeeeeb0 !important;
+        transition: .3s !important;
+    }
+
+    span[id*="sp-sp"] {
+        display: none !important;
+    }
+
+    #container #content_left .sp-separator a {
+        font-family: Microsoft YaHei;
+        margin-right: 0 !important;
+    }
+
+    .sp-separator a b span,
+    .sp-separator a b {
+        margin-top: -8px !important;
+        cursor: default !important;
+    }
+
+    .AC-CounterT {
+        background-color: #ff3838 !important;
+        font-size: 13px !important;
+        color: #eee !important;
+        font-weight: normal !important;
+        border-radius: 4px !important;
+        display: inline-block !important;
+        zoom: .9 !important;
+    }
+
+    ::-webkit-scrollbar-thumb,
+    ::-webkit-scrollbar-thumb:hover,
+    ::-webkit-scrollbar {
+        display: none !important;
+    }
+}
+@-moz-document regexp(".*") {
+    /* Custom ScrollBar */
+    ::-webkit-scrollbar-thumb {
+        background-color: #00000069 !important;
+        border-radius: 3px !important;
+        border-width: 1px !important;
+        border-style: solid !important;
+        border-color: transparent !important;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #00000069 !important;
+        border-radius: 3px !important;
+        border-width: 1px !important;
+        border-style: solid !important;
+        border-color: transparent !important;
+    }
+
+    ::-webkit-scrollbar {
+        background-color: transparent !important;
+        width: 8px !important;
+        height: 8px !important;
+        border-width: initial !important;
+        border-style: none !important;
+        border-color: transparent !important;
+        border-image: initial !important;
+    }
+}
+
+@-moz-document regexp("https://www.baidu.com/\\?.*|https://www1.baidu.com/") {
+    /*   淡入淡出   */
+    /* 动画 */
+    @-webkit-keyframes float/*Safari and Chrome*/
+    {
+        0% {
+            top: 40%;
+        }
+        50% {
+            top: 45%;
+        }
+        100% {
+            top: 40%;
+        }
+    }
+    @keyframes flow {
+        0% {
+            color: #fff;
+            background-color: #ff3838;
+            box-shadow: 0px 0px 15px #ff000082;
+        }
+        100% {
+            color: #E74C3C !important;
+            background-color: #E74C3C;
+        }
+    }
+    @keyframes flow_out_down {
+        50% {
+            box-shadow: 1px 7px 7px #ff000063;
+        }
+    }
+    @keyframes fade-in {
+        0% {
+            opacity: 0;
+        }
+        /*初始状态 透明度为0*/
+        40% {
+            opacity: 0;
+        }
+        /*过渡状态 透明度为0*/
+        100% {
+            opacity: 1;
+        }
+        /*结束状态 透明度为1*/
+    }
+    @-webkit-keyframes fade-in {
+        /*针对webkit内核*/
+        0% {
+            opacity: 0;
+        }
+        40% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    body.s-manhattan-index {
+        transition: .3s;
+        -webkit-animation: fade-in .5s;
+        background: #f3f3f3;
+        background-color: #f3f3f3;
+        backdrop-filter: blur(40px);
+        background-image: url('https://w.wallhaven.cc/full/j5/wallhaven-j5zyvp.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center 0%;
+    }
+    /* 页面简化 */
+    #s-top-left,
+    #u1,
+    #bottom_layer,
+    #s_top_wrap,
+    #content_right,
+    .c-gap-top.c-recommend,
+    a.toindex,
+    #foot,
+    table[class="result-op"],
+    #bottom_space {
+        display: none !important;
+    }
+    /*   顶栏设置   */
+    /* 隐藏顶栏元素 */
+    #s-top-left,
+    a[class*="right-text"],
+    #s_menu_gurd {
+        display: none !important;
+    }
+
+    #head,
+    #s_top_wrap {
+        background-color: #f3f3f385 !important;
+        box-shadow: 0 5px 10px #88888814;
+        transition: .3s;
+    }
+    /* 头像 */
+    .s-top-right .s-top-username .s-top-img-wrapper,
+    .wrapper_new #u .s-top-img-wrapper {
+        position: relative;
+        width: 28px;
+        height: 28px;
+        border: 1px solid #ff3838;
+        display: inline-block;
+    }
+    .s-top-right .s-top-username .user-name:hover,
+    #s-usersetting-top:hover {
+        color: #ff3838 !important;
+    }
+    .s-top-right .s-top-username .user-name {
+        color: black !important;
+    }
+    .wrapper_new #s_tab .cur-tab:after {
+        background-color: #ff3838;
+    }
+    /*   LOGO   */
+    #s_lg_img {
+        content: url("https://s1.ax1x.com/2020/08/09/aT6ESe.png");
+        -webkit-animation: float 1.2s infinite !important;
+        /*         filter: invert(0) hue-rotate(230deg) */
+    }
+    #result_logo > img.s_lg_img_gold_show {
+        content: url("https://s1.ax1x.com/2020/08/09/aT6aT0.png");
+    }
+
+    /*   搜索栏设置   */
+    /* 输入框 */
+    .wrapper_new .fm {
+        margin: 15px 0 15px 19px !important;
+    }
+
+    input[class="s_ipt"],
+    input[class="s_ipt nobg_s_fm_hover"],
+    #head_wrapper #kw:focus,
+    #head_wrapper #form #kw.new-ipt-focus {
+        /*         border-color: #ff3838 !important; */
+        border-color: transparent !important;
+    }
+    #wrapper #head #head_wrapper #s_fm #s_form_wrapper #form #s_kw_wrap {
+        border-color: #ff3838 !important;
+    }
+    input[maxlength="100"],
+    .soutu-btn {
+        background-color: #f3f3f3 !important;
+        /*         z-index: -1 !important; */
+        box-shadow: none !important;
+    }
+
+    #head_wrapper .s_btn {
+        margin-left: 2px !important;
+    }
+
+    input[maxlength="100"] {
+        z-index: -1 !important;
+    }
+
+    /* 下拉框  */
+    #head_wrapper #form .bdsug-new {
+        /*         border-color: #ff3838 !important; */
+        border-color: transparent !important;
+        width: 548px !important;
+        border: none !important;
+    }
+
+    /* 历史和预测 */
+    #form div ul li span,
+    #form div li u {
+        color: black !important;
+        transition: .3s;
+    }
+    #form div ul li span:hover,
+    #form div li u:hover {
+        color: #ff3838 !important;
+        transition: .3s;
+    }
+    /* 按钮 */
+    #su {
+        -webkit-animation: flow .6s infinite;
+        -webkit-animation-direction: alternate;
+        background-color: #ff3838 !important;
+        -webkit-text-stroke-width: 0;
+    }
+
+    #form > div {
+        background: linear-gradient( #f3f3f3, 60%, rgba(255, 255, 255, .3));
+    }
+
+    /*   导航和热点   */
+    #s_main {
+        display: none;
+    }
+
+    /*   foot   */
+    #bottom_layer {
+        display: none;
+    }
+
+    ::-webkit-scrollbar-thumb,
+    ::-webkit-scrollbar-thumb:hover,
+    ::-webkit-scrollbar {
+        display: none !important;
+    }
+}
+
+
+@-moz-document regexp("https://www.baidu.com/s.*|https://www1.baidu.com/s.*|https://www.baidu.com/baidu?.*") {
+    /* 搜索页面框架 */
+    @keyframes flow {
+        0% {
+            color: #fff;
+            background-color: #ff3838;
+            box-shadow: 1px 5px 10px #ff000082;
+        }
+        100% {
+            color: #E74C3C !important;
+            background-color: #E74C3C;
+        }
+    }
+
+    @keyframes flow_out_down {
+        50% {
+            box-shadow: 1px 7px 7px #ff000063;
+        }
+    }
+
+    @keyframes hover {
+        0% {
+            background-color: transparent;
+        }
+        100% {
+            background-color: #3498DB;
+        }
+    }
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0;
+        }
+        /*初始状态 透明度为0*/
+        40% {
+            opacity: 0;
+        }
+        /*过渡状态 透明度为0*/
+        100% {
+            opacity: 1;
+        }
+        /*结束状态 透明度为1*/
+    }
+    @-webkit-keyframes fade-in {
+        /*针对webkit内核*/
+        0% {
+            opacity: 0;
+        }
+        40% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    /* 页面简化 */
+    #s-top-left,
+    #u1,
+    #bottom_layer,
+    #s_top_wrap,
+    #content_right,
+    .c-gap-top.c-recommend,
+    a.toindex,
+    #foot,
+    table[class="result-op"],
+    #bottom_space {
+        display: none !important;
+    }
+
+    /* 控制最小下边距防止内容溢出 */
+    #container {
+        padding-bottom: 50px;
+        width: auto !important;
+    }
+
+    html {
+        -webkit-animation: fade-in .5s;
+        /*         filter: invert(1) hue-rotate(180deg); */
+    }
+
+    body {
+        background-color: #f3f3f3;
+        background-image: url(https://w.wallhaven.cc/full/j5/wallhaven-j5zyvp.jpg);
+        background-size: 100%;
+        background-repeat: repeat-y;
+        background-attachment: fixed;
+        background-position: center 0%;
+    }
+
+    body > #wrapper,
+    body > .wrap,
+    body > #main,
+    body #appbar,
+    body #hdtbSum {
+        background: rgba(225, 225, 225, 0.5);
+    }
+
+    #head {
+        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #f3f3f3 30%, #f3f3f3 70%, rgba(255, 255, 255, 0));
+    }
+
+    #s_tab > div {
+        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #f3f3f3 30%, #f3f3f3 70%, rgba(255, 255, 255, 0));
+        margin: auto !important;
+        border-radius: 4px;
+        backdrop-filter: blur(5px);
+    }
+
+    /* LOGO */
+    #result_logo > img.index-logo-src,
+    #result_logo > img.s_lg_img_gold_show {
+        content: url("https://s1.ax1x.com/2020/08/09/aT6aT0.png");
+        padding-right: 10.5px !important;
+    }
+
+
+    /* 搜索框 */
+    #form > div,
+    input[maxlength="100"],
+    .soutu-btn {
+        /*     background-color: #f3f3f3; */
+        background-color: #f3f3f3 !important;
+        z-index: -1;
+        transition: .3s;
+        /*     border-top: none !important; */
+    }
+
+    .new_head_nums_cont_outer {
+        margin-top: 5px;
+        padding-left: 0;
+        width: 93%
+    }
+
+    #form > div:hover {
+        -webkit-animation: flow_out_down 1s infinite;
+        -webkit-animation-direction: alternate;
+    }
+
+    .bdsug-feedback:hover {
+        color: #ff3838 !important;
+    }
+
+    #head_wrapper #form #kw.new-ipt-focus,
+    .wrapper_new .iptfocus.s_ipt_wr,
+    .wrapper_new #form .bdsug-new,
+    #form > span.bg.s_ipt_wr.quickdelete-wrap,
+    #kw,
+    #head_wrapper #form #kw.nobg_s_fm_focus {
+        border-color: #ff3838 !important;
+        /*     transition: .3s !important; */
+    }
+
+    /* 头像框 */
+    .wrapper_new #u .s-top-img-wrapper {
+        position: relative;
+        width: 28px;
+        height: 28px;
+        border: 1px solid #ff3838;
+        display: inline-block;
+    }
+
+    /* 自定义按钮 */
+    #u #myuser input {
+        background-color: #FF3838 !important
+    }
+
+    #myuser .myuserconfig:hover {
+        /*         border-color: #ffa4a4 !important; */
+        box-shadow: 0px 0px 10px #ff000082;
+        background: transparent !important;
+        border: none !important;
+        transition: .3s !important;
+    }
+
+    #myuser .myuserconfig {
+        transition: .3s !important;
+        border: none !important;
+    }
+
+    /* block按钮 */
+    button.ghhider {
+        margin: -10px 0px 0px 10px;
+        font-size: 14px;
+    }
+
+    /* 链接下划线 */
+    #container.sam_newgrid .c-container .t a,
+    #container.sam_newgrid .c-containerSS .c-title a,
+    #container.sam_newgrid .c-container .t a em,
+    #container.sam_newgrid .c-container .c-title a em {
+        text-decoration: none !important;
+    }
+
+    /* s_form 文字 */
+    .wrapper_new #u > a:hover,
+    .wrapper_new #u > a:hover {
+        text-decoration: none;
+        color: #ff3838;
+    }
+
+    #u > div.usermenu > a:hover,
+    #u > div.bdpfmenu a:hover {
+        color: #ff3838 !important;
+    }
+
+    #s_menu_gurd {
+        background-color: #ffffff;
+    }
+
+    #s_lg_img_new {
+        background-image: none;
+    }
+
+    #su {
+        -webkit-animation: flow .5s infinite;
+        -webkit-animation-direction: alternate;
+        background-color: #ff3838 !important;
+        -webkit-text-stroke-width: 0;
+    }
+
+    em,
+    h4 em {
+        color: #ff3838;
+    }
+
+
+
+    #content_left h3 a[class*="OP_LOG_LINK"] {
+        color: #fff;
+        border-radius: 2px;
+        background-color: #ff3838 !important;
+    }
+
+    #form > div > ul > li > b:hover,
+    #form > div > ul li span:hover {
+        color: #ff3838 !important;
+        transition: .3s;
+    }
+
+    #form > div > ul > li > b {
+        color: black !important;
+        transition: .3s;
+    }
+
+    #result_logo img {
+        border-radius: 0;
+    }
+
+    /* 搜索工具栏 */
+    .search_tool_conter,
+    .nums {
+        background-color: #eee9;
+        transition: .3s;
+        width: 540px;
+        padding: 0 10px;
+    }
+
+    .search_tool_conter:hover {
+        backdrop-filter: blur(5px) !important;
+        background-color: #eeeeeeb0;
+    }
+
+    #container > div.head_nums_cont_outer.OP_LOG > div > div.nums > div {
+        margin-left: 478px !important;
+        position: absolute;
+    }
+
+    #container #content_left > div {
+        /* IE启用 */
+        /*         backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px); */
+        transition: .15s;
+    }
+
+    div#content_left > div:hover {
+        /*     border: 1px #eeeeee5c solid; */
+        background-color: #eeeeeeb0;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        box-shadow: 1px 5px 10px #88888882;
+        transition: .15s;
+    }
+
+    /* 搜索条目 */
+    div#content_left > div {
+        margin-top: 9px;
+        padding: 10px;
+        /*     border: 1px #eeeeee5c solid; */
+        border-radius: 6px;
+        background-color: #eee9;
+        transition: .3s;
+    }
+    
+    .new-pmd .c-img-radius-large, .c-img4 {
+        border-radius: 8% !important
+    }
+
+
+    /* 字体颜色 */
+    #content_left a,
+    #rs a {
+        color: #4b6fd9;
+    }
+
+    /* 浏览过的标签标记 */
+    #content_left a:visited {
+        color: #ff3838;
+    }
+
+    #content_left a[data-click*="snapshot"],
+    #content_left a[data-click*="comment"] {
+        color: #666;
+    }
+
+    .head_nums_cont_inner {
+        margin-top: -2px
+    }
+
+    #head {
+        /* IE启用 */
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        transition: .3s;
+    }
+
+    .wrapper_new .sam_newgrid ~ #page a:hover,
+    .wrapper_new .sam_newgrid ~ #page a:hover .pc,
+    .wrapper_new .sam_newgrid ~ #page .n:hover {
+        background: #fff;
+    }
+
+
+    #page > div > a > span {
+        color: #ff3838;
+        transition: .3s;
+    }
+
+    #page > div > a > span:hover {
+        background-color: #ff3838 !important;
+        transition: .3s;
+    }
+
+    .page-inner a:hover,
+    .page-inner strong {
+        box-shadow: 1px 5px 10px #ff000082;
+    }
+
+
+    /* 固定翻页位置 */
+    .page-inner {
+        bottom: 0 !important;
+        right: 10px;
+        transition: .3s;
+        padding: 14px !important;
+        border-radius: 6px;
+        backdrop-filter: blur(20px);
+        background-color: #eeeeee7d !important;
+    }
+
+    /* 注释掉 .page-inner 和 #page > div 再恢复下面两行可恢复原位 */
+    /*     .page-inner {
+        bottom: 0 !important;
+        position: fixed;
+    } */
+    #page > div {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        background-color: #eeeeeede;
+        box-shadow: 0 -5px 10px #adadad2e;
+        position: fixed;
+        margin-left: 0 !important;
+    }
+
+    #page > div:hover {
+        background-color: #eee !important;
+        box-shadow: 0 -5px 10px #8888883b;
+        position: fixed;
+        transition: .3s !important;
+        /*         bottom: 0; */
+        /*         z-index: 1; */
+    }
+
+    #page > div > strong > span {
+        background-color: #ff3838;
+    }
+
+    a[class="n"] {
+        -webkit-animation: flow .5s infinite;
+        -webkit-animation-direction: alternate;
+        color: #fff !important;
+        transition: .3s;
+    }
+
+    a[class="n"]:hover {
+        box-shadow: none;
+        background-color: transparent;
+        /*     -webkit-animation:hover 1s; */
+        transition: .3s
+    }
+
+    .wrapper_new #s_tab .cur-tab:after {
+        background: #ff3838;
+    }
+
+    div[class^="result-op"] div a em {
+        color: #ff3838;
+    }
+
+    #rs {
+        /*         position: relative;
+        padding: 10px;
+        border-radius: 6px;
+        background-color: #eeeeeede;
+        transition: .3s;
+        backdrop-filter: blur(10px);
+        margin: 0.3% 1.87% !important;
+        width: 87.4% !important; */
+        display: none !important;
+    }
+
+    /*     #rs:hover {
+        border-radius: 4px;
+        background-color: #eee;
+        box-shadow: 1px 5px 10px #88888882;
+        transition: .3s;
+    } */
+    /* 自定义滚动条 */
+    /*     ::-webkit-scrollbar-thumb {
+        background-color: #ff3838 !important;
+        border-radius: 3px !important;
+        border-width: 1px !important;
+        border-style: solid !important;
+        border-color: transparent !important;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #db0000d9 !important;
+        border-radius: 3px !important;
+        border-width: 1px !important;
+        border-style: solid !important;
+        border-color: transparent !important;
+    }
+
+    ::-webkit-scrollbar {
+        background-color: transparent !important;
+        width: 8px !important;
+        height: 8px !important;
+        border-width: initial !important;
+        border-style: none !important;
+        border-color: transparent !important;
+        border-image: initial !important;
+    } */
+}
